@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export", // Enable static export for GitHub Pages
+  basePath: '/biaeast.github.io',
+  assetPrefix: '/biaeast.github.io',
   trailingSlash: true, // Add trailing slashes for GitHub Pages
   skipTrailingSlashRedirect: true,
   distDir: 'out',
