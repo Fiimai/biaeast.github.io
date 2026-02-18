@@ -45,25 +45,13 @@ export function HeroSection() {
           exit="exit"
           variants={peelVariants}
         >
-          {/* Background Gradient */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-purple-200 via-white to-white opacity-70 dark:from-purple-950 dark:via-zinc-900 dark:to-zinc-900 dark:opacity-90" />
-
-          {/* Blob Shape */}
-          <motion.div
-            className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-gradient-to-r from-violet-300/30 to-purple-100/30 blur-3xl dark:from-violet-700/20 dark:to-purple-900/20"
-            initial={{ opacity: 0, x: -20, scale: 0.95 }}
-            animate={{
-              opacity: isVisible ? 1 : 0,
-              x: isVisible ? 0 : -20,
-              scale: isVisible ? 1 : 0.95,
-            }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-          />
+          {/* Semi-transparent overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
 
           <div className="container relative z-10">
             <div className="flex flex-col items-center text-center">
               <motion.h1
-                className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+                className="mb-6 text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isVisible ? 1 : 0,
@@ -75,7 +63,7 @@ export function HeroSection() {
               </motion.h1>
 
               <motion.p
-                className="mb-8 max-w-2xl text-xl text-muted-foreground"
+                className="mb-8 max-w-2xl text-xl text-white/90 drop-shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isVisible ? 1 : 0,
@@ -149,7 +137,7 @@ export function HeroSection() {
               }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 1.0 }}
             >
-              <p className="mb-8 text-lg text-muted-foreground">
+              <p className="mb-8 text-lg text-white/80">
                 Supervising 16 health facilities across Bia East District. Here are
                 a few of them:
               </p>
