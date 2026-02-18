@@ -30,7 +30,7 @@ export default function RootLayout({
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover"
           />
         </div>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
