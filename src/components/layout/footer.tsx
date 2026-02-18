@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import ghsLogo from "../../../images/ghs-official.png";
+import ghsLogo from "/images/ghs-official.png";
 
 const healthServicesLinks = [
 	{ name: "Primary Care", href: "#" },
