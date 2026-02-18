@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="fixed inset-0 -z-10 bg-black">
+        <div className="fixed inset-0 -z-10">
           <video
             src={BACKGROUND_VIDEO}
             autoPlay
