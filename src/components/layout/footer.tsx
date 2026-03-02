@@ -73,7 +73,7 @@ export function Footer() {
 					<div>
 						<div className="mb-4 flex items-center gap-3">
 							<Image
-								src={ghsLogo}
+								src="/images/ghs-official.png"
 								alt="Ghana Health Service Logo"
 								width={32}
 								height={32}
