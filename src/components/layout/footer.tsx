@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import ghsLogo from "../../public/images/ghs-official.png";
+
 
 const healthServicesLinks = [
 	{ name: "Primary Care", href: "#" },
@@ -73,7 +73,7 @@ export function Footer() {
 					<div>
 						<div className="mb-4 flex items-center gap-3">
 							<Image
-								src={ghsLogo}
+								src="/images/ghs-official.png"
 								alt="Ghana Health Service Logo"
 								width={32}
 								height={32}

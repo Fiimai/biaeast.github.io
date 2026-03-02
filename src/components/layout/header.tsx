@@ -16,7 +16,7 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { motion } from "framer-motion";
-import ghsLogo from "../../public/images/ghs-official.png";
+
 
 const facilitiesItems: { title: string; description: string }[] = [
   { title: "Kaase Health Centre", description: "Health Centre" },
@@ -212,7 +212,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src={ghsLogo}
+              src="/images/ghs-official.png"
               alt="Ghana Health Service Logo"
               width={40}
               height={40}
