@@ -307,16 +307,18 @@ export function DeveloperSection() {
                           value={programType}
                           className="mt-0 relative min-h-[300px]"
                         >
-                          <pre className="font-mono text-sm">
-                            <code className="whitespace-pre">{example}</code>
-                          </pre>
-                          <div className="absolute top-2 right-2">
+                          <div className="bg-zinc-900 rounded-lg p-4 overflow-auto max-h-[350px]">
+                            <pre className="font-mono text-sm text-zinc-100 leading-relaxed">
+                              <code>{example}</code>
+                            </pre>
+                          </div>
+                          <div className="absolute top-4 right-4">
                             <Button
                               variant="ghost"
                               size="sm"
                               className="h-8 gap-1 rounded-md px-2 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
                             >
-                              View Details
+                              Copy
                             </Button>
                           </div>
                         </TabsContent>
