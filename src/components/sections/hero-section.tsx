@@ -45,6 +45,16 @@ export function HeroSection() {
           exit="exit"
           variants={peelVariants}
         >
+          {/* Background video */}
+          <video
+            src="/images/forest_scene_bg.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover -z-10"
+          />
+          
           {/* Semi-transparent overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
 

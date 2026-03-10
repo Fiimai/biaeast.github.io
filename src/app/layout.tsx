@@ -7,8 +7,6 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const BACKGROUND_VIDEO = "/images/forest_scene_bg.mp4";
-
 export const metadata: Metadata = {
   title: "DHD Bia East | Promoting Health in Bia East District, Ghana",
   description:
@@ -23,16 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="fixed inset-0 -z-10">
-          <video
-            src={BACKGROUND_VIDEO}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        </div>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
           <main>{children}</main>
