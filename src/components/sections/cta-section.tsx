@@ -64,12 +64,12 @@ export function CTASection() {
                 all. Whether you're seeking services or looking to collaborate,
                 we're here to help.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="gap-2">
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center px-4">
+                <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90">
                   Find Health Services{" "}
                   <ArrowRight className="h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-border hover:bg-muted">
                   Partner with us
                 </Button>
               </div>
@@ -80,7 +80,7 @@ export function CTASection() {
             </motion.div>
 
             <motion.div
-              className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3"
+              className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 px-4"
               initial={{ opacity: 0, y: 40 }}
               animate={{
                 opacity: isVisible ? 1 : 0,
@@ -88,8 +88,8 @@ export function CTASection() {
               }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             >
-              <div className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+              <div className="text-center p-6 rounded-lg bg-muted/30 border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -111,8 +111,8 @@ export function CTASection() {
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+              <div className="text-center p-6 rounded-lg bg-muted/30 border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -136,8 +136,8 @@ export function CTASection() {
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+              <div className="text-center p-6 rounded-lg bg-muted/30 border border-border/50 hover:border-primary/30 transition-colors">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

@@ -306,7 +306,7 @@ export function FeaturesSection() {
 										>
 											{feature.items.map((item) => (
 												<motion.div key={item.id} variants={itemVariants}>
-													<Card className="bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm border border-zinc-100 dark:border-zinc-700 transition-all hover:shadow-md">
+													<Card className="bg-card/50 dark:bg-card/30 backdrop-blur-sm border border-border transition-all hover:shadow-lg hover:border-primary/50">
 														<CardHeader>
 															<CardTitle>{item.title}</CardTitle>
 															<CardDescription>{item.description}</CardDescription>

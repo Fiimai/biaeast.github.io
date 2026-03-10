@@ -251,8 +251,8 @@ export function DeveloperSection() {
                 transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
               >
                 <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary/40 to-violet-400/40 opacity-20 blur-xl" />
-                <div className="relative overflow-hidden rounded-xl border bg-white dark:bg-zinc-800 dark:border-zinc-700 shadow-lg">
-                  <div className="flex items-center justify-between border-b bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-700 px-4 py-3">
+                <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-background dark:bg-zinc-800 shadow-xl">
+                  <div className="flex items-center justify-between border-b border-border bg-muted/30 px-4 py-3">
                     <div className="flex items-center gap-1">
                       <div className="h-3 w-3 rounded-full bg-red-500" />
                       <div className="h-3 w-3 rounded-full bg-yellow-500" />
@@ -263,40 +263,40 @@ export function DeveloperSection() {
                       onValueChange={setProgram}
                       className="w-auto"
                     >
-                      <TabsList className="h-8 bg-zinc-100/80 dark:bg-zinc-800/80 p-1">
+                      <TabsList className="h-8 bg-muted/50 p-1 gap-1">
                         <TabsTrigger
                           value="maternal"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Maternal Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="child"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Child Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="community"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Community
                         </TabsTrigger>
                         <TabsTrigger
                           value="emergency"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Emergency
                         </TabsTrigger>
                         <TabsTrigger
                           value="public"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Public Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="systems"
-                          className="text-xs px-3 py-1 h-6 data-[state=active]:bg-white dark:data-[state=active]:bg-zinc-700"
+                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                         >
                           Health Systems
                         </TabsTrigger>
@@ -323,12 +323,12 @@ export function DeveloperSection() {
                       ))}
                     </Tabs>
                   </div>
-                  <div className="flex gap-4 items-center bg-zinc-50 dark:bg-zinc-900 px-4 py-3 border-t dark:border-zinc-700">
-                    <div className="text-sm font-medium">
-                      Create a PaymentIntent
+                  <div className="flex gap-4 items-center bg-muted/30 px-4 py-3 border-t border-border">
+                    <div className="text-sm font-medium text-foreground">
+                      Health Programs
                     </div>
                     <div className="text-xs text-muted-foreground">
-                      PaymentIntents API
+                      Implementation Guidelines
                     </div>
                   </div>
                 </div>
