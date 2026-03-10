@@ -252,17 +252,17 @@ export function DeveloperSection() {
               >
                 <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary/40 to-violet-400/40 opacity-20 blur-xl" />
                 <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-background dark:bg-zinc-800 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-border bg-muted/30 px-4 py-3">
-                    <div className="flex items-center gap-1">
-                      <div className="h-3 w-3 rounded-full bg-red-500" />
-                      <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                      <div className="h-3 w-3 rounded-full bg-green-500" />
-                    </div>
-                    <Tabs
-                      value={program}
-                      onValueChange={setProgram}
-                      className="w-auto"
-                    >
+                  <Tabs
+                    value={program}
+                    onValueChange={setProgram}
+                    className="w-full"
+                  >
+                    <div className="flex items-center justify-between border-b border-border bg-muted/30 px-4 py-3">
+                      <div className="flex items-center gap-1">
+                        <div className="h-3 w-3 rounded-full bg-red-500" />
+                        <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                        <div className="h-3 w-3 rounded-full bg-green-500" />
+                      </div>
                       <TabsList className="h-8 bg-muted/50 p-1 gap-1">
                         <TabsTrigger
                           value="maternal"
@@ -301,18 +301,21 @@ export function DeveloperSection() {
                           Health Systems
                         </TabsTrigger>
                       </TabsList>
+                    </div>
+
+                    <div className="p-6">
                       {Object.entries(programExamples).map(([programType, example]) => (
                         <TabsContent
                           key={programType}
                           value={programType}
-                          className="mt-0 relative min-h-[300px]"
+                          className="mt-0 relative"
                         >
                           <div className="bg-zinc-900 rounded-lg p-4 overflow-auto max-h-[350px]">
-                            <pre className="font-mono text-sm text-zinc-100 leading-relaxed">
+                            <pre className="font-mono text-sm text-zinc-100 leading-relaxed whitespace-pre-wrap break-words">
                               <code>{example}</code>
                             </pre>
                           </div>
-                          <div className="absolute top-4 right-4">
+                          <div className="absolute top-8 right-8">
                             <Button
                               variant="ghost"
                               size="sm"
@@ -323,16 +326,17 @@ export function DeveloperSection() {
                           </div>
                         </TabsContent>
                       ))}
-                    </Tabs>
-                  </div>
-                  <div className="flex gap-4 items-center bg-muted/30 px-4 py-3 border-t border-border">
-                    <div className="text-sm font-medium text-foreground">
-                      Health Programs
                     </div>
-                    <div className="text-xs text-muted-foreground">
-                      Implementation Guidelines
+
+                    <div className="flex gap-4 items-center bg-muted/30 px-4 py-3 border-t border-border">
+                      <div className="text-sm font-medium text-foreground">
+                        Health Programs
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Implementation Guidelines
+                      </div>
                     </div>
-                  </div>
+                  </Tabs>
                 </div>
 
                 <div className="mt-6 flex items-center gap-2 text-sm">
