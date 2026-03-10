@@ -175,7 +175,7 @@ export function DeveloperSection() {
           exit="exit"
           variants={peelVariants}
         >
-          <div className="container">
+          <div className="container px-4 sm:px-6">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-16">
               <div className="space-y-6">
                 <motion.h2

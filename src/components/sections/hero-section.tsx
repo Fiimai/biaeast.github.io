@@ -58,7 +58,7 @@ export function HeroSection() {
           {/* Semi-transparent overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
 
-          <div className="container relative z-10">
+          <div className="container px-4 sm:px-6 relative z-10">
             <div className="flex flex-col items-center text-center">
               <motion.h1
                 className="mb-6 text-4xl font-bold tracking-tight text-white drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl"

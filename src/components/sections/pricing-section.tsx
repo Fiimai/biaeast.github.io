@@ -276,7 +276,7 @@ export function PricingSection() {
 					exit="exit"
 					variants={peelVariants}
 				>
-					<div className="container">
+					<div className="container px-4 sm:px-6">
 						<motion.div
 							className="mx-auto max-w-2xl text-center mb-16"
 							initial={{ opacity: 0, y: 20 }}
@@ -310,18 +310,18 @@ export function PricingSection() {
 						</motion.div>
 
 						<motion.div
-							className="grid gap-8 md:grid-cols-3"
+							className="grid gap-8 md:grid-cols-3 lg:gap-6"
 							variants={staggerContainer}
 							initial="hidden"
 							animate={isInView ? "visible" : "hidden"}
 						>
-							{plans.map((plan) => (
-								<motion.div key={plan.id} variants={fadeInUp}>
-									<Card
-										className={`relative overflow-hidden transition-all ${
-											plan.popular ? "shadow-lg border-primary/50 border-2" : "shadow-md border-border hover:border-primary/30"
-										}`}
-									>
+								{plans.map((plan) => (
+									<motion.div key={plan.id} variants={fadeInUp} className="h-full">
+										<Card
+											className={`relative overflow-hidden transition-all flex flex-col h-full ${
+												plan.popular ? "shadow-lg border-primary/50 border-2" : "shadow-md border-border hover:border-primary/30"
+											}`}
+										>
 										{plan.popular && (
 											<div className="absolute top-0 right-0">
 												<div className="bg-primary text-white text-xs font-medium px-3 py-1 rounded-bl-md">
@@ -333,7 +333,7 @@ export function PricingSection() {
 											<CardTitle>{plan.name}</CardTitle>
 											<CardDescription>{plan.description}</CardDescription>
 										</CardHeader>
-										<CardContent className="space-y-6">
+											<CardContent className="space-y-6 flex-grow">
 											<div>
 												<div className="flex items-baseline gap-2">
 													<span className="text-4xl font-bold">
@@ -374,7 +374,7 @@ export function PricingSection() {
 												))}
 											</div>
 										</CardContent>
-										<CardFooter>
+										<CardFooter className="mt-auto">
 											<Button
 												variant={plan.popular ? "default" : "outline"}
 												className="w-full"

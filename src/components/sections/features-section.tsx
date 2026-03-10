@@ -243,7 +243,7 @@ export function FeaturesSection() {
 					exit="exit"
 					variants={peelVariants}
 				>
-					<div className="container">
+					<div className="container px-4 sm:px-6">
 						<div className="mx-auto max-w-2xl text-center mb-16">
 							<motion.h2
 								className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
@@ -306,14 +306,14 @@ export function FeaturesSection() {
 										>
 											{feature.items.map((item) => (
 												<motion.div key={item.id} variants={itemVariants}>
-													<Card className="bg-card/50 dark:bg-card/30 backdrop-blur-sm border border-border transition-all hover:shadow-lg hover:border-primary/50">
+													<Card className="bg-card/50 dark:bg-card/30 backdrop-blur-sm border border-border transition-all hover:shadow-lg hover:border-primary/50 flex flex-col h-full">
 														<CardHeader>
-															<CardTitle>{item.title}</CardTitle>
-															<CardDescription>{item.description}</CardDescription>
+															<CardTitle className="text-lg">{item.title}</CardTitle>
+															<CardDescription className="line-clamp-3">{item.description}</CardDescription>
 														</CardHeader>
-														<CardContent className="pt-0">
-															<button className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-																Learn more <ArrowRight className="h-3 w-3" />
+														<CardContent className="pt-0 mt-auto">
+															<button className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:gap-2 transition-all">
+																Learn more <ArrowRight className="h-4 w-4" />
 															</button>
 														</CardContent>
 													</Card>
