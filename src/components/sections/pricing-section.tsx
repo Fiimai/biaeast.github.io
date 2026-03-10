@@ -318,8 +318,8 @@ export function PricingSection() {
 							{plans.map((plan) => (
 								<motion.div key={plan.id} variants={fadeInUp}>
 									<Card
-										className={`relative overflow-hidden border-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 ${
-											plan.popular ? "shadow-lg border-primary/50" : "shadow-md"
+										className={`relative overflow-hidden transition-all ${
+											plan.popular ? "shadow-lg border-primary/50 border-2" : "shadow-md border-border hover:border-primary/30"
 										}`}
 									>
 										{plan.popular && (
@@ -399,10 +399,10 @@ export function PricingSection() {
 							<h3 className="text-2xl font-bold mb-8 text-center">
 								Compare plans
 							</h3>
-							<div className="overflow-x-auto">
+							<div className="overflow-x-auto rounded-lg border border-border">
 								<table className="w-full border-collapse">
 									<thead>
-										<tr className="border-b dark:border-zinc-700">
+										<tr className="border-b border-border bg-muted/50">
 											<th className="py-4 px-6 text-left font-medium">
 												Features
 											</th>
@@ -420,7 +420,7 @@ export function PricingSection() {
 										{comparisonFeatures.map((feature) => (
 											<tr
 												key={feature.id}
-												className="border-b dark:border-zinc-700"
+												className="border-b border-border hover:bg-muted/30 transition-colors"
 											>
 												<td className="py-4 px-6">
 													<div className="flex items-center gap-1">

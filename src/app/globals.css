@@ -57,6 +57,10 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  
+  main {
+    @apply relative z-10;
+  }
 }
 
 /* Stripe-specific styles */
