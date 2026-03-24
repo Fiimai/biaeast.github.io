@@ -46,7 +46,7 @@ export function HeroSection() {
           variants={peelVariants}
         >
           {/* Semi-transparent overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
 
           <div className="container relative z-10">
             <div className="flex flex-col items-center text-center">
@@ -77,7 +77,7 @@ export function HeroSection() {
               </motion.p>
 
               <motion.div
-                className="flex flex-col gap-4 sm:flex-row"
+                className="flex flex-col gap-4 sm:flex-row justify-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: isVisible ? 1 : 0,
@@ -85,10 +85,10 @@ export function HeroSection() {
                 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               >
-                <Button size="lg" className="gap-2">
+                <Button size="lg" className="gap-2 bg-primary hover:bg-primary/90">
                   Explore Our Services <ArrowRight className="h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 backdrop-blur-sm">
                   Contact Directorate
                 </Button>
               </motion.div>
@@ -96,7 +96,7 @@ export function HeroSection() {
 
             {/* Gallery Preview */}
             <motion.div
-              className="mt-16 flex justify-center"
+              className="mt-12 md:mt-16 flex justify-center px-4"
               initial={{ opacity: 0, y: 40 }}
               animate={{
                 opacity: isVisible ? 1 : 0,
@@ -104,18 +104,18 @@ export function HeroSection() {
               }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
             >
-              <div className="relative w-full max-w-5xl overflow-hidden rounded-xl border shadow-lg">
+              <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
                 <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-4">
                   {/* Gallery Preview */}
                   <div className="grid h-full grid-cols-4 gap-2">
-                    <div className="h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
                   </div>
                 </div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/10 backdrop-blur-sm">
-                  <h3 className="text-2xl font-bold text-white shadow-md">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white shadow-lg text-center">
                     Explore Our Health Initiatives
                   </h3>
                   <Link href="/gallery">

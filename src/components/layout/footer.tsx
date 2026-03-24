@@ -67,8 +67,8 @@ const resourceLinks = [
 
 export function Footer() {
 	return (
-		<footer className="bg-muted py-12 md:py-24">
-			<div className="container">
+		<footer className="bg-muted/80 backdrop-blur-sm border-t border-border py-12 md:py-24">
+			<div className="container px-4 sm:px-6">
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
 					<div>
 						<div className="mb-4 flex items-center gap-3">
