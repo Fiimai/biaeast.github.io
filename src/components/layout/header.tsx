@@ -203,14 +203,14 @@ export function Header() {
 
   return (
     <motion.header
-      className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="sticky top-0 z-50 w-full border-b border-border bg-background/98 backdrop-blur-lg supports-[backdrop-filter]:bg-background/95"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/images/ghs-official.png"
               alt="Ghana Health Service Logo"
@@ -219,7 +219,7 @@ export function Header() {
               className="object-contain"
             />
             <div className="flex flex-col">
-              <span className="font-bold text-lg text-primary leading-tight">Bia East DHD</span>
+              <span className="font-bold text-base sm:text-lg text-primary leading-tight">Bia East DHD</span>
             </div>
           </Link>
         </div>

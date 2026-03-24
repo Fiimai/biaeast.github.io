@@ -127,7 +127,7 @@ export function TestimonialsSection() {
 					exit="exit"
 					variants={peelVariants}
 				>
-					<div className="container">
+					<div className="container px-4 sm:px-6">
 						<div className="mx-auto max-w-2xl text-center mb-16">
 							<motion.h2
 								className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
@@ -175,7 +175,7 @@ export function TestimonialsSection() {
 								{testimonials.map((testimonial) => (
 									<Card
 										key={testimonial.id}
-										className="bg-white border border-zinc-100 dark:bg-zinc-800 dark:border-zinc-700 transition-all hover:shadow-md h-full min-w-full"
+										className="bg-card border border-border transition-all hover:shadow-lg hover:border-primary/30 h-full min-w-full"
 									>
 										<CardContent className="p-6 flex flex-col h-full">
 											<Quote className="h-8 w-8 text-primary/20 mb-4" />
@@ -226,7 +226,7 @@ export function TestimonialsSection() {
 						</motion.div>
 
 						<motion.div
-							className="mt-20 grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6"
+							className="mt-20 grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6 px-4"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{
 								opacity: isInView ? 1 : 0,
