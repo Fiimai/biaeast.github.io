@@ -42,7 +42,7 @@ export function CTASection() {
           variants={peelVariants}
         >
 
-          <div className="container relative z-10">
+          <div className="container px-4 sm:px-6 relative z-10">
             <motion.div
               className="mx-auto max-w-3xl text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export function CTASection() {
             </motion.div>
 
             <motion.div
-              className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3 px-4"
+              className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3"
               initial={{ opacity: 0, y: 40 }}
               animate={{
                 opacity: isVisible ? 1 : 0,

@@ -311,7 +311,7 @@ export function PricingSection() {
 						</motion.div>
 
 						<motion.div
-							className="grid gap-8 md:grid-cols-3"
+							className="grid gap-8 md:grid-cols-3 lg:gap-6"
 							variants={staggerContainer}
 							initial="hidden"
 							animate={isInView ? "visible" : "hidden"}
@@ -382,7 +382,7 @@ export function PricingSection() {
 											))}
 										</div>
 										</CardContent>
-										<CardFooter>
+										<CardFooter className="mt-auto">
 											<Button
 												variant={plan.popular ? "default" : "outline"}
 												className="w-full"

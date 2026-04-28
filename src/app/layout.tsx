@@ -8,8 +8,6 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const BACKGROUND_VIDEO = "/images/forest_scene_bg.mp4";
-
 export const metadata: Metadata = {
   title: "DHD Bia East | Promoting Health in Bia East District, Ghana",
   description:
