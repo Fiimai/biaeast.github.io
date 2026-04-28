@@ -156,6 +156,7 @@ export function DeveloperSection() {
     <AnimatePresence>
       {isVisible && (
         <motion.section
+          id="programs"
           ref={sectionRef}
           className="relative py-20 md:py-32 bg-gradient-to-b from-transparent to-black/30"
           initial="initial"

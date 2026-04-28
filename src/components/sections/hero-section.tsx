@@ -38,6 +38,7 @@ export function HeroSection() {
     <AnimatePresence>
       {isVisible && (
         <motion.section
+          id="hero"
           suppressHydrationWarning
           className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-black/40 to-transparent"
           initial="initial"
