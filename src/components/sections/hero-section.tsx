@@ -38,25 +38,14 @@ export function HeroSection() {
     <AnimatePresence>
       {isVisible && (
         <motion.section
+          id="hero"
           suppressHydrationWarning
-          className="relative overflow-hidden py-20 md:py-32"
+          className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-black/40 to-transparent"
           initial="initial"
           animate="animate"
           exit="exit"
           variants={peelVariants}
         >
-          {/* Background video */}
-          <video
-            src="/images/forest_scene_bg.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover -z-10"
-          />
-          
-          {/* Semi-transparent overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
 
           <div className="container px-4 sm:px-6 relative z-10">
             <div className="flex flex-col items-center text-center">

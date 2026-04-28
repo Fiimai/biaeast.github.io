@@ -33,18 +33,14 @@ export function CTASection() {
     <AnimatePresence>
       {isVisible && (
         <motion.section
+          id="contact"
           ref={sectionRef}
-          className="relative py-24 overflow-hidden"
+          className="relative py-24 overflow-hidden bg-gradient-to-b from-transparent to-black/50"
           initial="initial"
           animate="animate"
           exit="exit"
           variants={peelVariants}
         >
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-violet-100/20 dark:from-primary/5 dark:to-violet-900/10" />
-
-          {/* Wavy pattern overlay */}
-          <div className="absolute inset-0 opacity-10 pattern-wavy" />
 
           <div className="container px-4 sm:px-6 relative z-10">
             <motion.div
@@ -56,10 +52,10 @@ export function CTASection() {
               }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                Join us in building a healthier Bia East District
+              <h2 className="text-3xl font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
+                Join us in Building a Healthier Bia East District
               </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-lg text-white/80 drop-shadow-md">
                 Partner with us in our mission to provide quality healthcare for
                 all. Whether you're seeking services or looking to collaborate,
                 we're here to help.
