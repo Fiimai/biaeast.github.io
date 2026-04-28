@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export", // Enable static export for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/biaeast.github.io' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/biaeast.github.io' : '',
+  basePath: '', // No base path for user/org site (biaeast.github.io)
+  assetPrefix: '', // No asset prefix for user/org site
   trailingSlash: true, // Add trailing slashes for GitHub Pages
   skipTrailingSlashRedirect: true,
   distDir: 'out',
