@@ -120,6 +120,7 @@ export function TestimonialsSection() {
 		<AnimatePresence>
 			{isVisible && (
 				<motion.section
+					id="testimonials"
 					ref={sectionRef}
 					className="relative py-20 md:py-32 bg-gradient-to-b from-black/30 to-transparent"
 					initial="initial"

@@ -264,7 +264,7 @@ export function Header() {
 
           <HoverCard openDelay={100} closeDelay={100}>
             <HoverCardTrigger asChild>
-              <Button variant="link" className="flex items-center gap-1 p-0">
+              <Button variant="link" className="flex items-center gap-1 p-0 text-foreground">
                 Services <ChevronDown className="h-4 w-4" />
               </Button>
             </HoverCardTrigger>
@@ -273,7 +273,7 @@ export function Header() {
                 {servicesItems.map((item) => (
                   <Link
                     key={item.title}
-                    href="#"
+                    href="/#features"
                     className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
                   >
                     <div className="font-medium group-hover:underline">{item.title}</div>
@@ -284,35 +284,46 @@ export function Header() {
             </HoverCardContent>
           </HoverCard>
 
-          <Button variant="link" className="flex items-center gap-1 p-0">
-            <Link href="/gallery">Gallery</Link>
-          </Button>
+          <Link href="/#hero" className="text-foreground hover:text-primary transition-colors">
+            Gallery
+          </Link>
 
           <HoverCard openDelay={100} closeDelay={100}>
             <HoverCardTrigger asChild>
-              <Button variant="link" className="flex items-center gap-1 p-0">
+              <Button variant="link" className="flex items-center gap-1 p-0 text-foreground">
                 About <ChevronDown className="h-4 w-4" />
               </Button>
             </HoverCardTrigger>
             <HoverCardContent className="w-80 rounded-xl border border-border/40 bg-background/80 shadow-lg backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
               <div className="grid gap-4">
-                {aboutItems.map((item) => (
-                  <Link
-                    key={item.title}
-                    href="#"
-                    className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
-                  >
-                    <div className="font-medium group-hover:underline">{item.title}</div>
-                    <div className="text-sm text-muted-foreground">{item.description}</div>
-                  </Link>
-                ))}
+                <Link
+                  href="/#features"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                >
+                  <div className="font-medium group-hover:underline">About DHD Bia East</div>
+                  <div className="text-sm text-muted-foreground">Learn about our mission and vision.</div>
+                </Link>
+                <Link
+                  href="/#testimonials"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                >
+                  <div className="font-medium group-hover:underline">Leadership</div>
+                  <div className="text-sm text-muted-foreground">Meet our management and staff.</div>
+                </Link>
+                <Link
+                  href="/#programs"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                >
+                  <div className="font-medium group-hover:underline">Community Initiatives</div>
+                  <div className="text-sm text-muted-foreground">Our outreach and public health programs.</div>
+                </Link>
               </div>
             </HoverCardContent>
           </HoverCard>
 
-          <Button variant="link" className="flex items-center gap-1 p-0">
-            <Link href="#">Contact</Link>
-          </Button>
+          <Link href="/#contact" className="text-foreground hover:text-primary transition-colors">
+            Contact
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -351,37 +362,29 @@ export function Header() {
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">Services</h4>
-                  {servicesItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href="#"
-                      className="block py-2"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                  <Link href="/#features" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    Our Services
+                  </Link>
                 </div>
                 <div className="space-y-4">
                   <h4 className="font-medium">About</h4>
-                  {aboutItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href="#"
-                      className="block py-2"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.title}
-                    </Link>
-                  ))}
+                  <Link href="/#features" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    About DHD Bia East
+                  </Link>
+                  <Link href="/#programs" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    Health Programs
+                  </Link>
+                  <Link href="/#testimonials" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    Testimonials
+                  </Link>
                 </div>
                 <div className="space-y-4 pt-4 border-t dark:border-zinc-700">
-                  <Link href="#" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
                     Patient Portal
                   </Link>
-                  <Button className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2 font-semibold text-red-500" onClick={() => setIsMobileMenuOpen(false)}>
                     Emergency Contact
-                  </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
