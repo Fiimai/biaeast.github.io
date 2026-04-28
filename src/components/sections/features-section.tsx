@@ -235,39 +235,39 @@ export function FeaturesSection() {
 	return (
 		<AnimatePresence>
 			{isVisible && (
-				<motion.section
-					ref={sectionRef}
-					className="relative py-20 md:py-32"
-					initial="initial"
-					animate="animate"
-					exit="exit"
-					variants={peelVariants}
-				>
+			<motion.section
+				ref={sectionRef}
+				className="relative py-20 md:py-32 bg-gradient-to-b from-black/30 to-transparent"
+				initial="initial"
+				animate="animate"
+				exit="exit"
+				variants={peelVariants}
+			>
 					<div className="container">
-						<div className="mx-auto max-w-2xl text-center mb-16">
-							<motion.h2
-								className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{
-									opacity: isInView ? 1 : 0,
-									y: isInView ? 0 : 20,
-								}}
-								transition={{ duration: 0.8, ease: "easeOut" }}
-							>
-								Comprehensive healthcare services for Bia East District
-							</motion.h2>
-							<motion.p
-								className="mt-4 text-lg text-muted-foreground"
-								initial={{ opacity: 0, y: 20 }}
-								animate={{
-									opacity: isInView ? 1 : 0,
-									y: isInView ? 0 : 20,
-								}}
-								transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-							>
-								We provide essential health services across all communities, from primary care to specialized programs, ensuring quality healthcare for everyone.
-							</motion.p>
-						</div>
+					<div className="mx-auto max-w-2xl text-center mb-16">
+						<motion.h2
+							className="text-3xl font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{
+								opacity: isInView ? 1 : 0,
+								y: isInView ? 0 : 20,
+							}}
+							transition={{ duration: 0.8, ease: "easeOut" }}
+						>
+							Comprehensive Healthcare Services
+						</motion.h2>
+						<motion.p
+							className="mt-4 text-lg text-white/80 drop-shadow-md"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{
+								opacity: isInView ? 1 : 0,
+								y: isInView ? 0 : 20,
+							}}
+							transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+						>
+							We provide essential health services across all communities, from primary care to specialized programs, ensuring quality healthcare for everyone.
+						</motion.p>
+					</div>
 
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
@@ -304,21 +304,27 @@ export function FeaturesSection() {
 											initial="hidden"
 											animate={activeTab === feature.id ? "visible" : "hidden"}
 										>
-											{feature.items.map((item) => (
-												<motion.div key={item.id} variants={itemVariants}>
-													<Card className="bg-card/50 dark:bg-card/30 backdrop-blur-sm border border-border transition-all hover:shadow-lg hover:border-primary/50">
-														<CardHeader>
-															<CardTitle>{item.title}</CardTitle>
-															<CardDescription>{item.description}</CardDescription>
-														</CardHeader>
-														<CardContent className="pt-0">
-															<button className="inline-flex items-center gap-1 text-sm font-medium text-primary">
-																Learn more <ArrowRight className="h-3 w-3" />
-															</button>
-														</CardContent>
-													</Card>
-												</motion.div>
-											))}
+												{feature.items.map((item) => (
+													<motion.div key={item.id} variants={itemVariants}>
+														<motion.div
+															className="h-full"
+															whileHover={{ y: -5 }}
+															transition={{ duration: 0.3 }}
+														>
+															<Card className="bg-gradient-to-br from-white/15 to-white/5 dark:from-white/10 dark:to-white/5 backdrop-blur-md border border-white/20 text-white transition-all hover:shadow-xl hover:border-white/40 h-full">
+																<CardHeader>
+																	<CardTitle className="text-white">{item.title}</CardTitle>
+																	<CardDescription className="text-white/70">{item.description}</CardDescription>
+																</CardHeader>
+																<CardContent className="pt-0">
+																	<button className="inline-flex items-center gap-1 text-sm font-medium text-white/90 hover:text-white transition-colors">
+																		Learn more <ArrowRight className="h-3 w-3" />
+																	</button>
+																</CardContent>
+															</Card>
+														</motion.div>
+													</motion.div>
+												))}
 										</motion.div>
 									</TabsContent>
 								))}

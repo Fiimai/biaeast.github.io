@@ -6,89 +6,77 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 
-// Sample health program implementations for different departments
-const programExamples = {
-  maternal: `// Maternal Health Program Structure
-- Antenatal Care Schedule
-  • First Visit: 1-12 weeks
-  • Second Visit: 20-24 weeks  
-  • Third Visit: 28-32 weeks
-  • Fourth Visit: 36-40 weeks
+// Health program details with key services and targets
+type ProgramContent = {
+  label: string;
+  value?: string;
+  items?: string[];
+};
 
-- Services Included:
-  • Health education and counseling
-  • Physical examination
-  • Laboratory tests (blood, urine)
-  • Iron and folic acid supplementation
-  • Tetanus toxoid immunization`,
-  child: `# Child Health Services Protocol
-immunization_schedule = {
-  "birth": ["BCG", "OPV-0", "Hepatitis B"],
-  "6_weeks": ["OPV-1", "DPT-1", "Hepatitis B-2"],
-  "10_weeks": ["OPV-2", "DPT-2"],
-  "14_weeks": ["OPV-3", "DPT-3", "Hepatitis B-3"],
-  "9_months": ["Measles", "Yellow Fever"],
-  "18_months": ["Measles-2", "DPT Booster"]
-}`,
-  community: `// Community Health Outreach Program
-class CommunityOutreach {
-  constructor() {
-    this.target_communities = [
-      "Adabokrom", "Ahenikrom", "Asanteman",
-      "Camp 15", "Yawmatwa", "Nkrankrom"
-    ];
-    this.services = [
-      "Health education",
-      "Basic screening", 
-      "Immunization",
-      "Family planning"
-    ];
-  }
-}`,
-  emergency: `<?php
-// Emergency Response Protocol
-class EmergencyResponse {
-  public $response_time = "< 30 minutes";
-  public $coverage = "24/7";
-  
-  public function handleEmergency($case) {
-    $priority = $this->assessPriority($case);
-    return [
-      'immediate_care' => true,
-      'ambulance_dispatch' => $priority === 'critical',
-      'referral_needed' => $priority === 'severe',
-    ];
-  }
-}`,
-  public: `// Public Health Surveillance System
-surveillance_system = {
-  diseases_monitored: [
-    "Malaria", "Tuberculosis", "HIV/AIDS",
-    "Hypertension", "Diabetes", "Diarrheal diseases"
-  ],
-  reporting_frequency: "Weekly",
-  data_sources: [
-    "Health facilities",
-    "Community health workers", 
-    "Laboratory results"
-  ]
-}`,
-  systems: `// Health Information Management
-class HealthInfoSystem {
-  constructor() {
-    this.facilities = 19; // Updated to reflect all facilities under the directorate
-    this.data_points = [
-      "Patient registrations",
-      "Service delivery statistics",
-      "Resource utilization",
-      "Health outcomes"
-    ];
-  }
-  
-  generateReport(period) {
-    return this.aggregateData(period);
-  }
-}`,
+type ProgramDetails = {
+  title: string;
+  content: ProgramContent[];
+};
+
+const programDetails: Record<string, ProgramDetails> = {
+  maternal: {
+    title: "Maternal Health Services",
+    content: [
+      { label: "Antenatal Care Visits", value: "4 scheduled visits per pregnancy" },
+      { label: "Safe Delivery Services", value: "Skilled birth attendance at all facilities" },
+      { label: "Postnatal Care", value: "Follow-up care within 48 hours of delivery" },
+      { label: "Maternal Mortality Target", value: "Reduce MMR by 30% by 2025" },
+      { label: "Key Services", items: ["Health education", "Nutritional support", "Tetanus immunization", "Blood screening"] },
+    ],
+  },
+  child: {
+    title: "Child Health Programs",
+    content: [
+      { label: "Immunization Coverage", value: "95% for children under 5" },
+      { label: "Exclusive Breastfeeding", value: "Promotion for first 6 months" },
+      { label: "Nutrition Programs", value: "Preventing malnutrition in children" },
+      { label: "Under-5 Mortality Target", value: "Reduce by 25% by 2025" },
+      { label: "Key Services", items: ["Full immunization schedule", "Growth monitoring", "Diarrhea management", "Malaria prevention"] },
+    ],
+  },
+  community: {
+    title: "Community Health Outreach",
+    content: [
+      { label: "Communities Reached", value: "All 16+ communities in Bia East District" },
+      { label: "Outreach Frequency", value: "Monthly health education campaigns" },
+      { label: "Services Provided", value: "Screening, education, basic treatment" },
+      { label: "Focus Areas", items: ["Hygiene & sanitation", "Nutrition education", "Disease prevention", "Family planning"] },
+    ],
+  },
+  emergency: {
+    title: "Emergency Response Services",
+    content: [
+      { label: "24/7 Coverage", value: "Round-the-clock emergency services available" },
+      { label: "Response Time", value: "Less than 30 minutes to emergencies" },
+      { label: "Ambulance Service", value: "Mobile units at all major facilities" },
+      { label: "Referral Network", value: "Coordinated with district hospital" },
+      { label: "Key Services", items: ["Emergency care", "Trauma management", "Rapid transport", "Stabilization & referral"] },
+    ],
+  },
+  public: {
+    title: "Public Health Surveillance",
+    content: [
+      { label: "Diseases Monitored", value: "10+ communicable and non-communicable diseases" },
+      { label: "Reporting System", value: "Weekly surveillance reports to regional level" },
+      { label: "Data Sources", items: ["All health facilities", "Community health workers", "Laboratory results", "Hospital admissions"] },
+      { label: "Outbreak Response", value: "Rapid response team deployment within 24 hours" },
+    ],
+  },
+  systems: {
+    title: "Health Systems Strengthening",
+    content: [
+      { label: "Facilities Under DHD", value: "19 health facilities across district" },
+      { label: "Staff Training", value: "Continuous professional development programs" },
+      { label: "Data Management", value: "DHIS2-based health information system" },
+      { label: "Quality Assurance", value: "Regular supervision and supportive visits" },
+      { label: "Key Services", items: ["Facility management", "Supply chain support", "Quality monitoring", "Strategic planning"] },
+    ],
+  },
 };
 
 const healthFeatures = [
@@ -169,7 +157,7 @@ export function DeveloperSection() {
       {isVisible && (
         <motion.section
           ref={sectionRef}
-          className="relative py-20 md:py-32"
+          className="relative py-20 md:py-32 bg-gradient-to-b from-transparent to-black/30"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -179,7 +167,7 @@ export function DeveloperSection() {
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 xl:gap-16">
               <div className="space-y-6">
                 <motion.h2
-                  className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
+                  className="text-3xl font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{
                     opacity: isInView ? 1 : 0,
@@ -187,10 +175,10 @@ export function DeveloperSection() {
                   }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  Comprehensive health programs
+                  Comprehensive Health Programs
                 </motion.h2>
                 <motion.p
-                  className="text-lg text-muted-foreground"
+                  className="text-lg text-white/80 drop-shadow-md"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{
                     opacity: isInView ? 1 : 0,
@@ -250,98 +238,114 @@ export function DeveloperSection() {
                 }}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
               >
-                <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary/40 to-violet-400/40 opacity-20 blur-xl" />
-                <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-background dark:bg-zinc-800 shadow-xl">
-                  <div className="flex items-center justify-between border-b border-border bg-muted/30 px-4 py-3">
-                    <div className="flex items-center gap-1">
-                      <div className="h-3 w-3 rounded-full bg-red-500" />
-                      <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                      <div className="h-3 w-3 rounded-full bg-green-500" />
-                    </div>
-                    <Tabs
-                      value={program}
-                      onValueChange={setProgram}
-                      className="w-auto"
-                    >
-                      <TabsList className="h-8 bg-muted/50 p-1 gap-1">
+                <div className="relative rounded-2xl border border-primary/20 bg-white/10 dark:bg-white/5 backdrop-blur-md shadow-xl overflow-hidden">
+                  <Tabs
+                    value={program}
+                    onValueChange={setProgram}
+                    className="w-full"
+                  >
+                    <div className="border-b border-border bg-white/5 px-6 py-4">
+                      <TabsList className="h-auto bg-transparent p-0 gap-2 flex flex-wrap">
                         <TabsTrigger
                           value="maternal"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Maternal Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="child"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Child Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="community"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Community
                         </TabsTrigger>
                         <TabsTrigger
                           value="emergency"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Emergency
                         </TabsTrigger>
                         <TabsTrigger
                           value="public"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Public Health
                         </TabsTrigger>
                         <TabsTrigger
                           value="systems"
-                          className="text-xs px-3 py-1 h-6 bg-transparent data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="text-sm px-3 py-2 h-auto bg-white/10 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg border border-white/10 data-[state=active]:border-primary"
                         >
                           Health Systems
                         </TabsTrigger>
                       </TabsList>
-                      {Object.entries(programExamples).map(([programType, example]) => (
-                        <TabsContent
-                          key={programType}
-                          value={programType}
-                          className="mt-0 relative min-h-[300px]"
+                    </div>
+
+                    {Object.entries(programDetails).map(([programType, details]) => (
+                      <TabsContent
+                        key={programType}
+                        value={programType}
+                        className="mt-0 p-6 md:p-8 min-h-[400px]"
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4 }}
                         >
-                          <pre className="font-mono text-sm">
-                            <code className="whitespace-pre">{example}</code>
-                          </pre>
-                          <div className="absolute top-2 right-2">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="h-8 gap-1 rounded-md px-2 text-xs text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
-                            >
-                              View Details
-                            </Button>
+                          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">
+                            {details.title}
+                          </h3>
+                          <div className="space-y-4">
+                            {details.content.map((item, idx) => (
+                              <div key={idx} className="space-y-2">
+                                <div className="flex items-start justify-between">
+                                  <h4 className="font-semibold text-foreground text-lg">
+                                    {item.label}
+                                  </h4>
+                                  {"value" in item && (
+                                    <span className="text-primary font-medium text-right">
+                                      {item.value}
+                                    </span>
+                                  )}
+                                </div>
+                                {item.items && (
+                                  <div className="grid grid-cols-2 gap-2 ml-4">
+                                    {item.items.map((subItem: string, subIdx: number) => (
+                                      <div key={subIdx} className="flex items-center gap-2">
+                                        <div className="h-2 w-2 rounded-full bg-primary" />
+                                        <span className="text-sm text-muted-foreground">
+                                          {subItem}
+                                        </span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
                           </div>
-                        </TabsContent>
-                      ))}
-                    </Tabs>
-                  </div>
-                  <div className="flex gap-4 items-center bg-muted/30 px-4 py-3 border-t border-border">
-                    <div className="text-sm font-medium text-foreground">
-                      Health Programs
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      Implementation Guidelines
-                    </div>
-                  </div>
+                        </motion.div>
+                      </TabsContent>
+                    ))}
+                  </Tabs>
                 </div>
 
-                <div className="mt-6 flex items-center gap-2 text-sm">
-                  <Button variant="link" className="h-auto p-0 text-primary hover:underline">
-                    API Reference <ArrowRight className="h-3.5 w-3.5" />
+                <motion.div
+                  className="mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: isInView ? 1 : 0,
+                    y: isInView ? 0 : 20,
+                  }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+                >
+                  <Button className="gap-2">
+                    Learn More About Our Programs <ArrowRight className="h-4 w-4" />
                   </Button>
-                  <span className="text-muted-foreground">•</span>
-                  <Button variant="link" className="h-auto p-0 text-primary hover:underline">
-                    API Libraries <ArrowRight className="h-3.5 w-3.5" />
-                  </Button>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
