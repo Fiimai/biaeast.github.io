@@ -33,6 +33,9 @@ export default function RootLayout({
             playsInline
             className="w-full h-full object-cover"
           />
+          {/* Dynamic overlay that adapts text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </div>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />

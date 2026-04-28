@@ -268,14 +268,14 @@ export function PricingSection() {
 	return (
 		<AnimatePresence>
 			{isVisible && (
-				<motion.section
-					ref={sectionRef}
-					className="relative py-20 md:py-32"
-					initial="initial"
-					animate="animate"
-					exit="exit"
-					variants={peelVariants}
-				>
+			<motion.section
+				ref={sectionRef}
+				className="relative py-20 md:py-32 bg-gradient-to-b from-transparent to-black/40"
+				initial="initial"
+				animate="animate"
+				exit="exit"
+				variants={peelVariants}
+			>
 					<div className="container">
 						<motion.div
 							className="mx-auto max-w-2xl text-center mb-16"
@@ -286,12 +286,12 @@ export function PricingSection() {
 							}}
 							transition={{ duration: 0.8, ease: "easeOut" }}
 						>
-							<h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+							<h2 className="text-3xl font-bold tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl">
 								Healthcare Service Packages
 							</h2>
-							<p className="mt-4 text-lg text-muted-foreground">
+							<p className="mt-4 text-lg text-white/80 drop-shadow-md">
 								Accessible healthcare for everyone. Choose the package that best
-								fits your health needs.
+								fits your health needs and circumstances.
 							</p>
 
 							<div className="mt-10">
@@ -315,13 +315,20 @@ export function PricingSection() {
 							initial="hidden"
 							animate={isInView ? "visible" : "hidden"}
 						>
-							{plans.map((plan) => (
-								<motion.div key={plan.id} variants={fadeInUp}>
-									<Card
-										className={`relative overflow-hidden transition-all ${
-											plan.popular ? "shadow-lg border-primary/50 border-2" : "shadow-md border-border hover:border-primary/30"
-										}`}
-									>
+						{plans.map((plan) => (
+							<motion.div 
+								key={plan.id} 
+								variants={fadeInUp}
+								whileHover={{ y: -8 }}
+								transition={{ duration: 0.3 }}
+							>
+								<Card
+									className={`relative overflow-hidden transition-all backdrop-blur-sm ${
+										plan.popular 
+											? "shadow-lg border-primary/50 border-2 bg-gradient-to-br from-white/20 to-white/5" 
+											: "shadow-md border-white/20 bg-gradient-to-br from-white/15 to-white/5 hover:border-white/40"
+									}`}
+								>
 										{plan.popular && (
 											<div className="absolute top-0 right-0">
 												<div className="bg-primary text-white text-xs font-medium px-3 py-1 rounded-bl-md">
@@ -329,10 +336,10 @@ export function PricingSection() {
 												</div>
 											</div>
 										)}
-										<CardHeader>
-											<CardTitle>{plan.name}</CardTitle>
-											<CardDescription>{plan.description}</CardDescription>
-										</CardHeader>
+									<CardHeader>
+										<CardTitle className="text-white">{plan.name}</CardTitle>
+										<CardDescription className="text-white/70">{plan.description}</CardDescription>
+									</CardHeader>
 										<CardContent className="space-y-6">
 											<div>
 												<div className="flex items-baseline gap-2">
@@ -353,26 +360,26 @@ export function PricingSection() {
 												)}
 											</div>
 
-											<div className="space-y-3">
-												{plan.features.map((feature, idx) => (
-													<div
-														key={`${plan.id}-feature-${idx}`}
-														className="flex items-center gap-2"
-													>
-														<Check className="h-4 w-4 text-green-500" />
-														<span className="text-sm">{feature}</span>
-													</div>
-												))}
-												{plan.limitations.map((limitation, idx) => (
-													<div
-														key={`${plan.id}-limitation-${idx}`}
-														className="flex items-center gap-2 text-muted-foreground"
-													>
-														<X className="h-4 w-4" />
-														<span className="text-sm">{limitation}</span>
-													</div>
-												))}
-											</div>
+										<div className="space-y-3">
+											{plan.features.map((feature, idx) => (
+												<div
+													key={`${plan.id}-feature-${idx}`}
+													className="flex items-center gap-2"
+												>
+													<Check className="h-4 w-4 text-green-400" />
+													<span className="text-sm text-white/90">{feature}</span>
+												</div>
+											))}
+											{plan.limitations.map((limitation, idx) => (
+												<div
+													key={`${plan.id}-limitation-${idx}`}
+													className="flex items-center gap-2 text-white/50"
+												>
+													<X className="h-4 w-4" />
+													<span className="text-sm">{limitation}</span>
+												</div>
+											))}
+										</div>
 										</CardContent>
 										<CardFooter>
 											<Button
