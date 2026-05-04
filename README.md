@@ -27,7 +27,9 @@ This will:
 2. Test locally with `npm run dev`
 3. Deploy with `npm run deploy`
 
-That's it! Your site will be automatically updated at https://fiimai.github.io
+That's it! Your site will be automatically updated at https://fiimai.github.io/biaeast.github.io/
+
+If you want the root domain https://fiimai.github.io instead, the repository must be the user site repo named fiimai.github.io.
 
 ---
 

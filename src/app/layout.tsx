@@ -22,19 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="fixed inset-0 -z-10">
-          <video
-            src={BACKGROUND_VIDEO}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-          {/* Heavy dark overlay for text visibility over video */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/40" />
-        </div>
+        {/* Background video moved to hero section */}
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Header />
           <main>{children}</main>
