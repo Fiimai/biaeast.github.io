@@ -122,7 +122,7 @@ export function TestimonialsSection() {
 				<motion.section
 					id="testimonials"
 					ref={sectionRef}
-					className="relative py-20 md:py-32 bg-gradient-to-b from-black/30 to-transparent"
+					className="relative py-20 md:py-32 bg-gradient-to-b from-black/10 to-transparent"
 					initial="initial"
 					animate="animate"
 					exit="exit"

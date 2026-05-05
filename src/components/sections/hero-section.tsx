@@ -40,7 +40,7 @@ export function HeroSection() {
         <motion.section
           id="hero"
           suppressHydrationWarning
-          className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-black/40 to-transparent"
+          className="relative overflow-hidden py-20 md:py-32"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -55,8 +55,7 @@ export function HeroSection() {
               playsInline
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-transparent" />
           </div>
 
           <div className="container px-4 sm:px-6 relative z-10">
@@ -115,27 +114,27 @@ export function HeroSection() {
               }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
             >
-              <div className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-white/20 shadow-2xl">
-                <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-4">
-                  {/* Gallery Preview */}
-                  <div className="grid h-full grid-cols-4 gap-2">
-                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                    <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+              <Link href="/gallery" className="w-full max-w-5xl">
+                <div className="relative w-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl cursor-pointer hover:border-white/40 transition-colors">
+                  <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-4">
+                    {/* Gallery Preview */}
+                    <div className="grid h-full grid-cols-4 gap-2">
+                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
+                    </div>
                   </div>
-                </div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white shadow-lg text-center">
-                    Explore Our Health Initiatives
-                  </h3>
-                  <Link href="/gallery">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 backdrop-blur-sm">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg text-center">
+                      Explore Our Health Initiatives
+                    </h3>
                     <Button variant="secondary" size="lg" className="mt-4 gap-2">
                       View Gallery <ArrowRight className="h-4 w-4" />
                     </Button>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
 
             {/* Featured Facilities */}

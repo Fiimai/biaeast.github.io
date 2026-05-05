@@ -271,20 +271,23 @@ export function Header() {
             <HoverCardContent className="w-80 rounded-xl border border-border/40 bg-background/80 shadow-lg backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
               <div className="grid gap-4">
                 {servicesItems.map((item) => (
-                  <Link
+                  <a
                     key={item.title}
                     href="/#features"
-                    className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                    className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                   >
                     <div className="font-medium group-hover:underline">{item.title}</div>
                     <div className="text-sm text-muted-foreground">{item.description}</div>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </HoverCardContent>
           </HoverCard>
 
-          <Link href="/#hero" className="text-foreground hover:text-primary transition-colors">
+          <Link href="/#facilities" className="text-foreground hover:text-primary transition-colors">
+            Facilities
+          </Link>
+          <Link href="/gallery" className="text-foreground hover:text-primary transition-colors">
             Gallery
           </Link>
 
@@ -296,27 +299,27 @@ export function Header() {
             </HoverCardTrigger>
             <HoverCardContent className="w-80 rounded-xl border border-border/40 bg-background/80 shadow-lg backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
               <div className="grid gap-4">
-                <Link
-                  href="/#features"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                <a
+                  href="/#programs"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">About DHD Bia East</div>
                   <div className="text-sm text-muted-foreground">Learn about our mission and vision.</div>
-                </Link>
-                <Link
-                  href="/#testimonials"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                </a>
+                <a
+                  href="/#programs"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">Leadership</div>
                   <div className="text-sm text-muted-foreground">Meet our management and staff.</div>
-                </Link>
-                <Link
+                </a>
+                <a
                   href="/#programs"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">Community Initiatives</div>
                   <div className="text-sm text-muted-foreground">Our outreach and public health programs.</div>
-                </Link>
+                </a>
               </div>
             </HoverCardContent>
           </HoverCard>
@@ -328,8 +331,12 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="link" className="p-0">Patient Portal</Button>
-            <Button variant="default">Emergency Contact</Button>
+            <Link href="/#contact">
+              <Button variant="link" className="p-0">Patient Portal</Button>
+            </Link>
+            <Link href="/#contact">
+              <Button variant="default">Emergency Contact</Button>
+            </Link>
           </div>
 
           <ThemeToggle />
@@ -367,6 +374,12 @@ export function Header() {
                   </Link>
                 </div>
                 <div className="space-y-4">
+                  <h4 className="font-medium">Gallery</h4>
+                  <Link href="/gallery" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    View Gallery
+                  </Link>
+                </div>
+                <div className="space-y-4">
                   <h4 className="font-medium">About</h4>
                   <Link href="/#features" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
                     About DHD Bia East
@@ -379,10 +392,10 @@ export function Header() {
                   </Link>
                 </div>
                 <div className="space-y-4 pt-4 border-t dark:border-zinc-700">
-                  <Link href="/#contact" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2 font-medium text-primary hover:text-primary/80 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Patient Portal
                   </Link>
-                  <Link href="/#contact" className="block py-2 font-semibold text-red-500" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2 font-semibold text-red-500 hover:text-red-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Emergency Contact
                   </Link>
                 </div>

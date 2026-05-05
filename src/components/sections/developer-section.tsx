@@ -158,7 +158,7 @@ export function DeveloperSection() {
         <motion.section
           id="programs"
           ref={sectionRef}
-          className="relative py-20 md:py-32 bg-gradient-to-b from-transparent to-black/30"
+          className="relative py-20 md:py-32 bg-gradient-to-b from-transparent to-black/10"
           initial="initial"
           animate="animate"
           exit="exit"
