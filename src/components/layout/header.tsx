@@ -271,21 +271,21 @@ export function Header() {
             <HoverCardContent className="w-80 rounded-xl border border-border/40 bg-background/80 shadow-lg backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
               <div className="grid gap-4">
                 {servicesItems.map((item) => (
-                  <Link
+                  <a
                     key={item.title}
                     href="/#features"
-                    className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                    className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                   >
                     <div className="font-medium group-hover:underline">{item.title}</div>
                     <div className="text-sm text-muted-foreground">{item.description}</div>
-                  </Link>
+                  </a>
                 ))}
               </div>
             </HoverCardContent>
           </HoverCard>
 
-          <Link href="/#gallery" className="text-foreground hover:text-primary transition-colors">
-            Gallery
+          <Link href="/#facilities" className="text-foreground hover:text-primary transition-colors">
+            Facilities
           </Link>
 
           <HoverCard openDelay={100} closeDelay={100}>
@@ -296,27 +296,27 @@ export function Header() {
             </HoverCardTrigger>
             <HoverCardContent className="w-80 rounded-xl border border-border/40 bg-background/80 shadow-lg backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
               <div className="grid gap-4">
-                <Link
-                  href="/#features"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                <a
+                  href="/#programs"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">About DHD Bia East</div>
                   <div className="text-sm text-muted-foreground">Learn about our mission and vision.</div>
-                </Link>
-                <Link
-                  href="/#testimonials"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                </a>
+                <a
+                  href="/#programs"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">Leadership</div>
                   <div className="text-sm text-muted-foreground">Meet our management and staff.</div>
-                </Link>
-                <Link
+                </a>
+                <a
                   href="/#programs"
-                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted"
+                  className="group grid grid-cols-1 items-start gap-1 rounded-md p-2 hover:bg-muted cursor-pointer"
                 >
                   <div className="font-medium group-hover:underline">Community Initiatives</div>
                   <div className="text-sm text-muted-foreground">Our outreach and public health programs.</div>
-                </Link>
+                </a>
               </div>
             </HoverCardContent>
           </HoverCard>

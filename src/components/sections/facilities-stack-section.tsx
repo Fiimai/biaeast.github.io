@@ -237,8 +237,9 @@ export function FacilitiesStackSection() {
     <AnimatePresence>
       {isVisible && (
         <motion.section
+          id="facilities"
           ref={sectionRef}
-          className="relative py-20 md:py-32 bg-gradient-to-b from-black/20 to-transparent"
+          className="relative py-20 md:py-32 bg-gradient-to-b from-black/10 to-transparent"
           initial="initial"
           animate="animate"
           exit="exit"

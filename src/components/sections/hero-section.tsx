@@ -40,7 +40,7 @@ export function HeroSection() {
         <motion.section
           id="hero"
           suppressHydrationWarning
-          className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-b from-black/40 to-transparent"
+          className="relative overflow-hidden py-20 md:py-32"
           initial="initial"
           animate="animate"
           exit="exit"
@@ -55,8 +55,7 @@ export function HeroSection() {
               playsInline
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/50 to-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-transparent" />
           </div>
 
           <div className="container px-4 sm:px-6 relative z-10">

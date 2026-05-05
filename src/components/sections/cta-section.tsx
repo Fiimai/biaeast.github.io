@@ -35,7 +35,7 @@ export function CTASection() {
         <motion.section
           id="contact"
           ref={sectionRef}
-          className="relative py-24 overflow-hidden bg-gradient-to-b from-transparent to-black/50"
+          className="relative py-24 overflow-hidden bg-gradient-to-b from-transparent to-black/20"
           initial="initial"
           animate="animate"
           exit="exit"
