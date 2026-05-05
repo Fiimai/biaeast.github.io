@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
-import { ChevronLeft, ChevronRight, MapPin, Users, Calendar } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const facilities = [
@@ -223,11 +223,15 @@ export function FacilitiesStackSection() {
     setCurrentIndex((prev) => (prev - 1 + facilities.length) % facilities.length);
   };
 
-  const visibleCards = [
-    facilities[currentIndex],
-    facilities[(currentIndex + 1) % facilities.length],
-    facilities[(currentIndex + 2) % facilities.length],
-  ];
+  // Get visible cards (left, center, right) for horizontal carousel
+  const getVisibleCards = () => {
+    const cards = [];
+    for (let i = -1; i <= 1; i++) {
+      const idx = (currentIndex + i + facilities.length) % facilities.length;
+      cards.push({ facility: facilities[idx], position: i });
+    }
+    return cards;
+  };
 
   return (
     <AnimatePresence>
@@ -259,100 +263,99 @@ export function FacilitiesStackSection() {
               </p>
             </motion.div>
 
-            <div className="relative mx-auto max-w-4xl">
-              {/* Stack Cards Container */}
-              <div className="relative h-[480px] px-4">
+            <div className="relative mx-auto max-w-6xl">
+              {/* Horizontal Carousel Container */}
+              <div className="relative py-8">
                 <AnimatePresence mode="wait">
-                  {visibleCards.map((facility, idx) => (
-                    <motion.div
-                      key={`${facility.id}-${currentIndex}`}
-                      className={`absolute w-full max-w-md mx-auto left-0 right-0 cursor-pointer`}
-                      initial={{
-                        opacity: 0,
-                        scale: 0.85,
-                        y: idx === 0 ? 0 : idx * 20,
-                        x: idx === 0 ? 0 : idx * 10,
-                        zIndex: 3 - idx,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1 - idx * 0.05,
-                        y: idx * 20,
-                        x: idx * 10,
-                        zIndex: 3 - idx,
-                        transition: {
-                          duration: 0.5,
-                          ease: "easeOut",
-                        },
-                      }}
-                      exit={{
-                        opacity: 0,
-                        scale: 0.85,
-                        y: direction === "next" ? -50 : 50,
-                      }}
-                      onClick={handleNext}
-                    >
+                  <div className="flex items-center justify-center gap-4 md:gap-6 px-4">
+                    {getVisibleCards().map(({ facility, position }) => (
                       <motion.div
-                        className={`relative rounded-2xl border-2 ${facility.borderColor} bg-gradient-to-br ${facility.color} backdrop-blur-md p-6 md:p-8 h-full shadow-xl hover:shadow-2xl transition-all`}
-                        whileHover={{
-                          scale: 1.02,
-                          boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+                        key={`${facility.id}-${currentIndex}`}
+                        className="flex-shrink-0 w-full max-w-[280px] md:max-w-[320px] cursor-pointer"
+                        initial={{
+                          opacity: 0,
+                          scale: 0.7,
+                          x: position * 100,
+                        }}
+                        animate={{
+                          opacity: position === 0 ? 1 : 0.4,
+                          scale: position === 0 ? 1 : 0.8,
+                          x: 0,
+                          filter: position === 0 ? "blur(0px)" : "blur(2px)",
+                          transition: {
+                            duration: 0.5,
+                            ease: "easeOut",
+                          },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          scale: 0.7,
+                          x: direction === "next" ? -100 : 100,
+                        }}
+                        onClick={() => {
+                          if (position < 0) handlePrev();
+                          else if (position > 0) handleNext();
                         }}
                       >
-                        {/* Animated background elements */}
-                        <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                          <motion.div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-10"
-                            animate={{
-                              background: [
-                                "radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                                "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 50%)",
-                              ],
-                            }}
-                            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
-                          />
-                        </div>
+                        <motion.div
+                          className={`relative rounded-2xl border-2 ${facility.borderColor} bg-gradient-to-br ${facility.color} backdrop-blur-md p-6 md:p-8 shadow-xl hover:shadow-2xl transition-all h-[420px] flex flex-col`}
+                          whileHover={position === 0 ? { scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" } : {}}
+                        >
+                          {/* Animated background elements */}
+                          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                            <motion.div
+                              className="absolute inset-0"
+                              animate={{
+                                background: [
+                                  "radial-gradient(circle at 0% 0%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                                  "radial-gradient(circle at 100% 100%, rgba(255,255,255,0.1) 0%, transparent 50%)",
+                                ],
+                              }}
+                              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY }}
+                            />
+                          </div>
 
-                        <div className="relative z-10 flex flex-col h-full justify-between">
-                          <div>
-                            <div className="flex items-start justify-between mb-4">
-                              <div>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">
-                                  {facility.name}
-                                </h3>
-                                <p className="text-sm md:text-base text-white/70">{facility.type}</p>
+                          <div className="relative z-10 flex flex-col h-full justify-between">
+                            <div>
+                              <div className="flex items-start justify-between mb-4">
+                                <div>
+                                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                                    {facility.name}
+                                  </h3>
+                                  <p className="text-xs md:text-sm text-white/70">{facility.type}</p>
+                                </div>
+                              </div>
+
+                              <p className="text-white/80 mb-6 leading-relaxed text-sm">
+                                {facility.description}
+                              </p>
+                            </div>
+
+                            <div className="space-y-3 border-t border-white/20 pt-6">
+                              <div className="flex items-center gap-3 text-xs md:text-sm text-white/80">
+                                <Calendar className="h-4 w-4 flex-shrink-0" />
+                                <span>
+                                  {new Date(facility.commissioned).toLocaleDateString()}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-3 text-xs md:text-sm text-white/80">
+                                <Users className="h-4 w-4 flex-shrink-0" />
+                                <span>{facility.head}</span>
                               </div>
                             </div>
 
-                            <p className="text-white/80 mb-6 leading-relaxed">
-                              {facility.description}
-                            </p>
+                            {position === 0 && (
+                              <div className="mt-6 pt-6 border-t border-white/20">
+                                <p className="text-xs text-white/60 text-center">
+                                  Click left or right to explore
+                                </p>
+                              </div>
+                            )}
                           </div>
-
-                          <div className="space-y-3 border-t border-white/20 pt-6">
-                            <div className="flex items-center gap-3 text-sm text-white/80">
-                              <Calendar className="h-4 w-4" />
-                              <span>
-                                Commissioned: {new Date(facility.commissioned).toLocaleDateString()}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-3 text-sm text-white/80">
-                              <Users className="h-4 w-4" />
-                              <span>Head: {facility.head}</span>
-                            </div>
-                          </div>
-
-                          {idx === 0 && (
-                            <div className="mt-6 pt-6 border-t border-white/20">
-                              <p className="text-xs text-white/60 text-center">
-                                Swipe or click to explore next facility
-                              </p>
-                            </div>
-                          )}
-                        </div>
+                        </motion.div>
                       </motion.div>
-                    </motion.div>
-                  ))}
+                    ))}
+                  </div>
                 </AnimatePresence>
               </div>
 

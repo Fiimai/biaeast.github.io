@@ -284,7 +284,7 @@ export function Header() {
             </HoverCardContent>
           </HoverCard>
 
-          <Link href="/#hero" className="text-foreground hover:text-primary transition-colors">
+          <Link href="/#gallery" className="text-foreground hover:text-primary transition-colors">
             Gallery
           </Link>
 
@@ -328,8 +328,12 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="link" className="p-0">Patient Portal</Button>
-            <Button variant="default">Emergency Contact</Button>
+            <Link href="/#contact">
+              <Button variant="link" className="p-0">Patient Portal</Button>
+            </Link>
+            <Link href="/#contact">
+              <Button variant="default">Emergency Contact</Button>
+            </Link>
           </div>
 
           <ThemeToggle />
@@ -379,10 +383,10 @@ export function Header() {
                   </Link>
                 </div>
                 <div className="space-y-4 pt-4 border-t dark:border-zinc-700">
-                  <Link href="/#contact" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2 font-medium text-primary hover:text-primary/80 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Patient Portal
                   </Link>
-                  <Link href="/#contact" className="block py-2 font-semibold text-red-500" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href="/#contact" className="block py-2 font-semibold text-red-500 hover:text-red-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                     Emergency Contact
                   </Link>
                 </div>
