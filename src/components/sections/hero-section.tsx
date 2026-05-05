@@ -114,7 +114,7 @@ export function HeroSection() {
               }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
             >
-              <Link href="/#gallery" className="w-full max-w-5xl">
+              <Link href="/gallery" className="w-full max-w-5xl">
                 <div className="relative w-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl cursor-pointer hover:border-white/40 transition-colors">
                   <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-4">
                     {/* Gallery Preview */}
@@ -125,8 +125,8 @@ export function HeroSection() {
                       <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
                     </div>
                   </div>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white shadow-lg text-center">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 backdrop-blur-sm">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg text-center">
                       Explore Our Health Initiatives
                     </h3>
                     <Button variant="secondary" size="lg" className="mt-4 gap-2">

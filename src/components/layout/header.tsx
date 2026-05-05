@@ -287,6 +287,9 @@ export function Header() {
           <Link href="/#facilities" className="text-foreground hover:text-primary transition-colors">
             Facilities
           </Link>
+          <Link href="/gallery" className="text-foreground hover:text-primary transition-colors">
+            Gallery
+          </Link>
 
           <HoverCard openDelay={100} closeDelay={100}>
             <HoverCardTrigger asChild>
@@ -368,6 +371,12 @@ export function Header() {
                   <h4 className="font-medium">Services</h4>
                   <Link href="/#features" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
                     Our Services
+                  </Link>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-medium">Gallery</h4>
+                  <Link href="/gallery" className="block py-2" onClick={() => setIsMobileMenuOpen(false)}>
+                    View Gallery
                   </Link>
                 </div>
                 <div className="space-y-4">
