@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence, cubicBezier } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { HeroCollage } from "@/components/ui/hero-collage";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const easing = cubicBezier(0.42, 0, 0.58, 1); // easeInOut equivalent
@@ -116,14 +117,9 @@ export function HeroSection() {
             >
               <Link href="/gallery" className="w-full max-w-5xl">
                 <div className="relative w-full overflow-hidden rounded-2xl border border-white/20 shadow-2xl cursor-pointer hover:border-white/40 transition-colors">
-                  <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-4">
-                    {/* Gallery Preview */}
-                    <div className="grid h-full grid-cols-4 gap-2">
-                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                      <div className="h-full w-full rounded-lg bg-zinc-200 dark:bg-zinc-700" />
-                    </div>
+                  <div className="aspect-[16/9] w-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 p-8">
+                    {/* Collage Gallery Preview */}
+                    <HeroCollage />
                   </div>
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 backdrop-blur-sm">
                     <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg text-center">
