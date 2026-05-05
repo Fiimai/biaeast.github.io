@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, cubicBezier } from "framer-motion";
+import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HeroCollage } from "@/components/ui/hero-collage";
 import { ArrowRight } from "lucide-react";
